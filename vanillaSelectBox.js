@@ -1,9 +1,9 @@
 /*
 Copyright (C) Philippe Meyer 2019-2020
-Distributed under the MIT License  
+Distributed under the MIT License
 
 vanillaSelectBox : v0.56 : The multiselect checkboxes are a little smaller, maxWidth option is now working + added minWidth option as well
-                           The button has now a style attribute to protect its appearance 
+                           The button has now a style attribute to protect its appearance
 vanillaSelectBox : v0.55 : All attributes from the original select options are copied to the selectBox element
 vanillaSelectBox : v0.54 : if all the options of the select are selected by the user then the check all checkbox is checked
 vanillaSelectBox : v0.53 : if all the options of the select are selected then the check all checkbox is checked
@@ -68,8 +68,8 @@ function vanillaSelectBox(domSelector, options) {
     this.disabledItems = [];
     this.ulminWidth = 140;
     this.ulminHeight = 25;
-    this.forbidenAttributes = ["class","selected","disabled","data-text","data-value","style"]; 
-    this.forbidenClasses= ["active","disabled"]; 
+    this.forbidenAttributes = ["class","selected","disabled","data-text","data-value","style"];
+    this.forbidenClasses= ["active","disabled"];
     this.userOptions = {
         maxWidth: 500,
         minWidth:-1,
@@ -84,7 +84,7 @@ function vanillaSelectBox(domSelector, options) {
         if (options.maxWidth != undefined) {
             this.userOptions.maxWidth = options.maxWidth;
         }
-        if (options.maxWidth != undefined) {
+        if (options.minWidth != undefined) {
             this.userOptions.minWidth = options.minWidth;
         }
         if (options.maxHeight != undefined) {
@@ -143,9 +143,9 @@ function vanillaSelectBox(domSelector, options) {
                 {"key":"padding","value":"6px 12px"}
                 ]
         }
-    
+
         return cssArrayToString(cssArray);
-    
+
         function cssArrayToString(cssList){
             let list = "";
             cssList.forEach(function(x){
@@ -285,7 +285,7 @@ function vanillaSelectBox(domSelector, options) {
                     li.setAttribute(a.name, a.value);
                 });
             }
-            
+
             classes.forEach(function(x){
                 li.classList.add(x);
             });
@@ -660,7 +660,7 @@ vanillaSelectBox.prototype.setValue = function (values) {
                                     values.push(value);
                                 }
                             }
-                        } 
+                        }
                     }
                     });
                 } else if (values === "none") {
@@ -675,7 +675,7 @@ vanillaSelectBox.prototype.setValue = function (values) {
                                     }
                                 }
                             }
-                        } 
+                        }
                     });
                 }else {
                     values = values.split(",");
